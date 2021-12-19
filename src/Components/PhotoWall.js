@@ -12,7 +12,7 @@ class PhotoWall extends Component {
                     .sort(function(x,y) {
                         return y.id - x.id
                     })
-                    .map((post, i) => <Photo key={i} post={post} i={i} {...this.props} />)}           
+                    .map((post, index) => <Photo key={index} post={post} index={index} {...this.props} />)}           
                 </div>
             </div>
         )

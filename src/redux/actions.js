@@ -1,5 +1,3 @@
-
-
 export function removePost(i) {
     return {
         type: 'REMOVE_POST',
@@ -13,5 +11,13 @@ export function addPost(id, imageLink, description) {
         id,
         imageLink,
         description
+    }
+}
+
+export function addComment(comment, postId){
+    return {
+        type: 'ADD_COMMENT',
+        comment,
+        postId
     }
 }

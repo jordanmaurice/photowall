@@ -1,3 +1,5 @@
+
+
 export function removePost(i) {
     return {
         type: 'REMOVE_POST',

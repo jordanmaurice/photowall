@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class Photo extends Component {
     render() {
@@ -7,6 +8,7 @@ class Photo extends Component {
         console.log(this.props.post)
         return(
             <figure className="grid-figure"> 
+                <Link to={`/photo/${post.id}`}> <img src={post.imageLink} alt={post.description} className="grid-photo" /></Link>
                 <div className="grid-photo-wrap">
                     <img src={post.imageLink} alt={post.description} className="grid-photo" />
                 </div>

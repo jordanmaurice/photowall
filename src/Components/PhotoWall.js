@@ -13,7 +13,7 @@ class PhotoWall extends Component {
             <div>
                 <Container>
                     <Row className="create-button-row">
-                        <Link to="/create">
+                        <Link to="/create" className="d-flex justify-content-center">
                             <Button
                                 color="primary"
                                 size="lg"
@@ -25,7 +25,7 @@ class PhotoWall extends Component {
                     </Row>
                 </Container>
 
-                <Container>
+                <Container className="photo-wall py-5">
                     <CardColumns>
                         {this.props.posts
                         .sort(function(x,y) {

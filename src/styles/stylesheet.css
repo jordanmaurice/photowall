@@ -192,12 +192,27 @@ body {
     border-top-left-radius: 15px;
     border-top-right-radius:  15px;
 }
-/* 
-.card-columns {
-    column-count: 3;
-} */
+
+.card-columns .card {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+@media (min-width:1200px) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+        -webkit-column-gap: 1.25rem;
+        -moz-column-gap: 1.25rem;
+        column-gap: 1.25rem;
+        orphans: 1;
+        widows: 1;
+    }
+}
 .create-post-button{
-    font-size: 52px;
+    font-size: 36px;
     border-radius: 15px;
     text-transform: uppercase;
     padding: 25px;

@@ -1,5 +1,5 @@
 import React, {Component} from 'react' 
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input } from 'reactstrap';
 class Comments extends Component{
     constructor(){
         super()
@@ -10,7 +10,7 @@ class Comments extends Component{
         event.preventDefault()
 
         // Only submit a commment if the textbox is not empty..
-        if (event.target.elements.comment.value != ''){ 
+        if (event.target.elements.comment.value !== ''){ 
             const comment = event.target.elements.comment.value;
             this.props.addComment(comment, this.props.postId)
             event.target.elements.comment.value = '';

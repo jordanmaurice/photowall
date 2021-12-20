@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
+import { Card, CardImg, CardBody, CardTitle, CardText, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
@@ -27,6 +27,7 @@ function Photo(props){
                 </CardText>
                 <Button 
                     color="danger"
+                    size="lg"
                     onClick= {() => {
                         props.history.push('/')
                         props.startRemovingPost(props.index, post.id)
@@ -36,7 +37,8 @@ function Photo(props){
                 </Button>
                 {' '}
                 <Link to={`/photo/${post.id}`}>
-                    <Button>
+                    <Button
+                    size="lg">
                     <FontAwesomeIcon icon={faComment} /> 
                     {' '}
                     <span>

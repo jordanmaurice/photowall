@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import Photo from './Photo'
 import Comments from './Comments'
-import { Container, Row, Col, CardColumns, Button } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner } from 'reactstrap';
+
 class SinglePhoto extends Component {
     render() {
         const {match, posts} = this.props

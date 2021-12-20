@@ -1,9 +1,11 @@
 import React, {Component}from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Photo from './Photo'
 import {Link} from 'react-router-dom'
-import { Container, Row, Col, CardColumns, Button } from 'reactstrap';
+import { Container, Row, CardColumns, Button } from 'reactstrap';
 import { faCameraRetro } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 class PhotoWall extends Component {
     render() {
@@ -24,17 +26,15 @@ class PhotoWall extends Component {
                 </Container>
 
                 <Container>
-                    <Row>
-                        <CardColumns>
-                            {this.props.posts
-                            .sort(function(x,y) {
-                                return y.id - x.id
-                            })
-                            .map((post, index) =>                  
-                                <Photo key={index} post={post} index={index} {...this.props} />
-                            )}  
-                        </CardColumns>
-                    </Row>
+                    <CardColumns>
+                        {this.props.posts
+                        .sort(function(x,y) {
+                            return y.id - x.id
+                        })
+                        .map((post, index) =>                  
+                            <Photo key={index} post={post} index={index} {...this.props} />
+                        )}  
+                    </CardColumns>
                  </Container>
             </div>
         )

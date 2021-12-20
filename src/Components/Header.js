@@ -1,5 +1,5 @@
 import React, {Component} from 'react' 
-import { Button, Navbar, NavbarBrand, Collapse, Nav, NavItem, NavLink, NavbarToggler, NavbarText } from 'reactstrap';
+import { Navbar, NavbarBrand, Collapse, Nav, NavbarToggler, NavbarText } from 'reactstrap';
 
 class Header extends Component{
     render(){

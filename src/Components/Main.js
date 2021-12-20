@@ -5,10 +5,8 @@ import AddPhoto from './AddPhoto'
 import Header from './Header'
 import SinglePhoto from './SinglePhoto'
 import {Route, Switch } from 'react-router-dom'
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 class Main extends Component {   
-
     state = {
         loading: true
     }

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-
-import { Link } from 'react-router-dom'
-
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 class AddPhoto extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
@@ -12,7 +10,7 @@ class AddPhoto extends Component {
         const post = {
             id: Number(new Date()),
             description: description,
-            imageLink, imageLink
+            imageLink: imageLink
         }
 
         if (imageLink && description) {
@@ -25,13 +23,40 @@ class AddPhoto extends Component {
     render(){
         return (
             <div className="add-post">
-                <div className="form">
-                    <form onSubmit={this.handleSubmit}>
-                        <input type="text" placeholder="Enter image URL" name="link" />
-                        <input type="text" placeholder="Description" name="description" />
-                        <button>Post</button>
-                    </form>
-                </div>
+                <Form 
+                    inline
+                    onSubmit={this.handleSubmit}
+                >
+                    <FormGroup>
+                        <Label for="link" hidden >
+                            Image Url
+                        </Label>
+                        <Input
+                            id="link"
+                            name="link"
+                            placeholder="Enter image URL"
+                            type="text"
+                        />
+                    </FormGroup>
+                    {' '}
+                    <FormGroup>
+                        <Label for="description" hidden>
+                            Description
+                        </Label>
+                        <Input
+                            id="description"
+                            name="description"
+                            placeholder="Description"
+                            type="text"
+                        />
+                    </FormGroup>
+                    {' '}
+                    <Button 
+                        color="primary"
+                    >
+                        Add Photo
+                    </Button>
+                </Form>
             </div>
         )
     }

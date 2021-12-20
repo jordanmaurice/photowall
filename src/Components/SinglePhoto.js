@@ -6,18 +6,30 @@ class SinglePhoto extends Component {
     render() {
         const {match, posts} = this.props
         const id = Number(match.params.id)
-        const singlePost = posts.find((post) => post.id === id)
+        const post  = posts.find((post) => post.id === id)
         const comments = this.props.comments[match.params.id] || []
         const index = this.props.posts.findIndex((post) => post.id === id)
 
-        //console.log(singlePost)
+        console.log(post)
 
-        return (
-            <div className="single-photo">
-                <Photo post={singlePost} {...this.props} index={index} />
-                <Comments addComment={this.props.startAddingComment} comments={comments} postId={id} />
-            </div>
-        )
+        if(this.props.loading === true){
+            return (
+                <div className="loader">
+                    ...loading
+                </div>
+            )
+        } else if (post ) {
+            return (
+                <div className="single-photo">
+                    <Photo post={post} {...this.props} index={index} />
+                    <Comments addComment={this.props.startAddingComment} comments={comments} postId={id} />
+                </div>
+            )
+        } else {
+            return (
+                <h2> ...no post found </h2>
+            )
+        }
     }
 }
 

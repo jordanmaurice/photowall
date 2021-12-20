@@ -6,9 +6,15 @@ import SinglePhoto from './SinglePhoto'
 import {Route, Switch } from 'react-router-dom'
 
 class Main extends Component {   
-    
+
+    state = {
+        loading: true
+    }
+
     componentDidMount(){
-        this.props.startLoadingPosts()
+        this.props.startLoadingPosts().then(()=> {
+            this.setState({loading: false})
+        })
         this.props.startLoadingComments()
     }
 
@@ -22,7 +28,7 @@ class Main extends Component {
                 <Switch>
                     <Route exact path='/' render={(params) => (<PhotoWall {...this.props}{...params}/>)}/>
                     <Route path='/create' render={(params) => (<AddPhoto {...this.props}{...params}/>)}/> 
-                    <Route path='/photo/:id' render={(params) => (<SinglePhoto {...this.props}{...params}/>)}/> 
+                    <Route path='/photo/:id' loading={this.state.loading} render={(params) => (<SinglePhoto {...this.props}{...params}/>)}/> 
                 </Switch>
             </div>
         )

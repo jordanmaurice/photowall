@@ -1,6 +1,5 @@
 import _posts from '../data/posts';
 import {combineReducers} from 'redux'
-import { loadPosts } from './actions';
 
 const posts = function posts(state=_posts, action) {
     switch(action.type){
@@ -29,9 +28,7 @@ const comments = function comments(state={}, action) {
         default:
             return state
     }
-
 }
-
 
 const rootReducer = combineReducers({posts, comments})
 

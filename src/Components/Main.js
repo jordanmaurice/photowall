@@ -6,8 +6,10 @@ import SinglePhoto from './SinglePhoto'
 import {Route, Switch } from 'react-router-dom'
 
 class Main extends Component {   
+    
     componentDidMount(){
-        this.props.startLoadingPosts();    
+        this.props.startLoadingPosts()
+        this.props.startLoadingComments()
     }
 
     render() {

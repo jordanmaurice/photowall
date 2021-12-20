@@ -18,7 +18,6 @@ class Comments extends Component{
     }
 
     render(){
-        console.log(this.props.comments)
         return (
             <div className="comment">
                 {
@@ -29,7 +28,7 @@ class Comments extends Component{
                     })
                 }
                 <form className="comment-form" onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="comment" name="comment" autocomplete="off"/>
+                    <input type="text" placeholder="comment" name="comment" autoComplete="off"/>
                     <input type="submit" hidden />
                 </form>
             </div>

@@ -10,12 +10,12 @@ class SinglePhoto extends Component {
         const comments = this.props.comments[match.params.id] || []
         const index = this.props.posts.findIndex((post) => post.id === id)
 
-        console.log(singlePost)
+        //console.log(singlePost)
 
         return (
             <div className="single-photo">
                 <Photo post={singlePost} {...this.props} index={index} />
-                <Comments addComment={this.props.addComment} comments={comments} postId={id} />
+                <Comments addComment={this.props.startAddingComment} comments={comments} postId={id} />
             </div>
         )
     }

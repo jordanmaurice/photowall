@@ -10,7 +10,6 @@ const posts = function posts(state=_posts, action) {
             return [...state, action.post]
         case 'LOAD_POSTS':
             return action.posts
-            // return [{"id": action.id, "imageLink": action.imageLink, "description": action.description},...state]
         default:
             return state
     }
@@ -25,9 +24,12 @@ const comments = function comments(state={}, action) {
             } else {
                 return {...state, [action.postId]:[...state[action.postId], action.comment]}
             }
+        case 'LOAD_COMMENTS':
+            return action.comments
         default:
             return state
     }
+
 }
 
 

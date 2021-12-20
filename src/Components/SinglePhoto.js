@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Photo from './Photo'
 import Comments from './Comments'
+import { Container, Row, Col, CardColumns, Button } from 'reactstrap';
 import { Spinner } from 'reactstrap';
 class SinglePhoto extends Component {
     render() {
@@ -22,10 +23,22 @@ class SinglePhoto extends Component {
             )
         } else if (post ) {
             return (
-                <div className="single-photo">
-                    <Photo post={post} {...this.props} index={index} />
-                    <Comments addComment={this.props.startAddingComment} comments={comments} postId={id} />
-                </div>
+                <Container>
+                    <Row>
+                        <Col
+                            xs="6"
+                            >
+                            <Photo post={post} {...this.props} index={index} />
+                        </Col>
+                        <Col
+                            className="bg-light"
+                            xs="6"
+                            >
+                            .<Comments addComment={this.props.startAddingComment} comments={comments} postId={id} />
+                        </Col>
+                    </Row>
+                </Container>
+
             )
         } else {
             return (

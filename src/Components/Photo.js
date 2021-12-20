@@ -7,9 +7,9 @@ import { faComment } from '@fortawesome/free-solid-svg-icons'
 
 function Photo(props){
     const post = props.post
-    
+
     return(
-            <Card>
+            <Card className="single-card">
                 <Link to={`/photo/${post.id}`}>
                 <CardImg
                     alt={post.description}
@@ -19,25 +19,28 @@ function Photo(props){
                 />
                 </Link>
                 <CardBody>
-                <CardTitle tag="h5">
+                <CardTitle tag="h2">
                     {post.description}
                 </CardTitle>
                 <CardText>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 </CardText>
                 <Button 
+                    color="danger"
                     onClick= {() => {
                         props.history.push('/')
                         props.startRemovingPost(props.index, post.id)
                     }}
                 >
-                    <FontAwesomeIcon icon={faTrash} /> Remove Photo
+                    <FontAwesomeIcon icon={faTrash} /> {' '} <span>Remove Photo</span>
                 </Button>
+                {' '}
                 <Link to={`/photo/${post.id}`}>
                     <Button>
                     <FontAwesomeIcon icon={faComment} /> 
+                    {' '}
                     <span>
-                        {props.comments[post.id] ? props.comments[post.id].length : 0 } Comments 
+                        {props.comments[post.id] ? props.comments[post.id].length : 0 }  Comments 
                     </span>
                     
                     </Button>

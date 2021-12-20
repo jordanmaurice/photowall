@@ -1,5 +1,5 @@
 import React, {Component} from 'react' 
-
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 class Comments extends Component{
     constructor(){
         super()
@@ -20,6 +20,7 @@ class Comments extends Component{
     render(){
         return (
             <div className="comment">
+                <h2>Comments</h2>
                 {
                     this.props.comments.map((comment,index)=> {
                         return (
@@ -27,10 +28,20 @@ class Comments extends Component{
                         )
                     })
                 }
-                <form className="comment-form" onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="comment" name="comment" autoComplete="off"/>
-                    <input type="submit" hidden />
-                </form>
+                <Form onSubmit={this.handleSubmit}>
+                    <FormGroup>
+                        <Label for="commentBox">
+                        Comment
+                        </Label>
+                        <Input
+                            id="commentBox"
+                            name="comment"
+                            placeholder="Enter a comment"
+                            type="text"
+                            autoComplete="off"
+                        />
+                    </FormGroup>
+                </Form>
             </div>
         )
     }

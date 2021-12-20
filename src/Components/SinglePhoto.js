@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Photo from './Photo'
 import Comments from './Comments'
-
+import { Spinner } from 'reactstrap';
 class SinglePhoto extends Component {
     render() {
         const {match, posts} = this.props
@@ -14,8 +14,10 @@ class SinglePhoto extends Component {
 
         if(this.props.loading === true){
             return (
-                <div className="loader">
-                    ...loading
+                <div>
+                    <Spinner>
+                        Loading...
+                    </Spinner>
                 </div>
             )
         } else if (post ) {

@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as actions from '../redux/actions'
+import * as actionCreators  from '../redux/actions'
 import Main from './Main'
 import { withRouter } from 'react-router'
 
@@ -12,7 +12,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators(actions, dispatch)
+    return bindActionCreators(actionCreators , dispatch)
 }
 
 const App = withRouter(connect(mapStateToProps, mapDispatchToProps)(Main))

@@ -1,17 +1,23 @@
 import React, {Component} from 'react';
-import serializeForm from 'form-serialize'
+
 import { Link } from 'react-router-dom'
 
 class AddPhoto extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const values = serializeForm(e.target, { hash: true })  
+        const imageLink = e.target.elements.link.value
+        const description = e.target.elements.description.value
 
-        if (values["imageLink"] && values["description"]) {
-            values.id = Number(new Date())
-            console.log(values["imageLink"])
-            this.props.addPost(values.id,values.imageLink,values.description)
+        const post = {
+            id: Number(new Date()),
+            description: description,
+            imageLink, imageLink
+        }
+
+        if (imageLink && description) {
+            this.props.startAddingPost(post)
+            //this.props.addPost(post)
             this.props.history.push('/')
         }
     }
@@ -21,7 +27,7 @@ class AddPhoto extends Component {
             <div className="add-post">
                 <div className="form">
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" placeholder="Enter image URL" name="imageLink" />
+                        <input type="text" placeholder="Enter image URL" name="link" />
                         <input type="text" placeholder="Description" name="description" />
                         <button>Post</button>
                     </form>

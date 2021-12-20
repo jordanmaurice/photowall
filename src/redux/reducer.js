@@ -6,7 +6,8 @@ const posts = function posts(state=_posts, action) {
         case 'REMOVE_POST':
             return [...state.slice(0, action.i), ...state.slice(action.i + 1)]
         case 'ADD_POST':
-            return [{"id": action.id, "imageLink": action.imageLink, "description": action.description},...state]
+            return [...state, action.post]
+            // return [{"id": action.id, "imageLink": action.imageLink, "description": action.description},...state]
         default:
             return state
     }

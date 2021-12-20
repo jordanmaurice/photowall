@@ -1,5 +1,6 @@
 import _posts from '../data/posts';
 import {combineReducers} from 'redux'
+import { loadPosts } from './actions';
 
 const posts = function posts(state=_posts, action) {
     switch(action.type){
@@ -7,6 +8,8 @@ const posts = function posts(state=_posts, action) {
             return [...state.slice(0, action.i), ...state.slice(action.i + 1)]
         case 'ADD_POST':
             return [...state, action.post]
+        case 'LOAD_POSTS':
+            return action.posts
             // return [{"id": action.id, "imageLink": action.imageLink, "description": action.description},...state]
         default:
             return state

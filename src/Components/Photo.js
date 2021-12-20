@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faComment } from '@fortawesome/free-solid-svg-icons'
 
 function Photo(props){
     const post = props.post
+    
     return(
             <Card>
                 <Link to={`/photo/${post.id}`}>
@@ -27,11 +31,15 @@ function Photo(props){
                         props.startRemovingPost(props.index, post.id)
                     }}
                 >
-                    Remove Photo
+                    <FontAwesomeIcon icon={faTrash} /> Remove Photo
                 </Button>
                 <Link to={`/photo/${post.id}`}>
                     <Button>
-                    {props.comments[post.id] ? props.comments[post.id].length : 0 } Comments 
+                    <FontAwesomeIcon icon={faComment} /> 
+                    <span>
+                        {props.comments[post.id] ? props.comments[post.id].length : 0 } Comments 
+                    </span>
+                    
                     </Button>
                 </Link>
                 </CardBody>

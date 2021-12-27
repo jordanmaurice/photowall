@@ -81,10 +81,11 @@ const registerWithEmailAndPassword = async (name, email, password) => {
 const sendPasswordResetEmail = async (email) => {
   try {
     await auth.sendPasswordResetEmail(email);
-    alert("Password reset link sent!");
+    console.log("Password reset link sent!") 
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    // alert(err.message);
+    return err.message
   }
 };
 

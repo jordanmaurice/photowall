@@ -210,7 +210,23 @@ body {
         orphans: 1;
         widows: 1;
     }
+	.login__container {
+		max-width: 415px;
+		margin: 0 auto;
+		padding: 35px;
+		background: #fff;
+		border-radius: 8px;
+    	box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+	}
+	.form-label {
+		font-size: 2rem;
+	}
+	.form-control {
+		font-size: 2rem;
+	}
 }
+
+
 .create-post-button{
     font-size: 36px;
     border-radius: 15px;

@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../database/config";
-//import { useAuthState } from "react-firebase-hooks/auth";
 import { Form, FormGroup, Label, Input, Button, Container, Row } from 'reactstrap';
-import { faCameraRetro } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
@@ -89,46 +87,54 @@ class Login extends Component{
             <Container>
                 <div className="login">
                     <div className="login__container">
-                    <Form onSubmit={this.handleSubmit}>
-                        <FormGroup>
-                            <Label for="email">
-                            Email
-                            </Label>
-                            <Input
-                                id="email"
-                                name="email"
-                                placeholder="Email"
-                                type="text"
-                                autoComplete="off"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="password">
-                            Password
-                            </Label>
-                            <Input
-                                id="password"
-                                name="password"
-                                placeholder="Password"
-                                type="password"
-                                autoComplete="off"
-                            />
-                        </FormGroup>
-                        <Button>Login</Button>
-                    </Form>
-                    <Button
-                        className="login__btn login__google" 
-                        color="primary"
-                        onClick={signInWithGoogle}
-                    >
-                        <FontAwesomeIcon icon={faGoogle} /> Login with Google
-                    </Button>
-
-                        <div>
-                        <Link to="/reset">Forgot Password</Link>
+                            <div className="text-center">
+                            <Button
+                                className="login__btn login__google mx-auto text-center" 
+                                color="primary"
+                                size="lg"
+                                onClick={signInWithGoogle}
+                            >
+                                <FontAwesomeIcon icon={faGoogle} /> Login with Google
+                            </Button>
                         </div>
-                        <div>
-                        Don't have an account? <Link to="/register">Register</Link> now.
+
+
+                        <Form 
+                            onSubmit={this.handleSubmit}
+                            className="my-5">
+                            <FormGroup>
+                                <Label for="email" className="sr-only">
+                                Email
+                                </Label>
+                                <Input
+                                    id="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    type="text"
+                                    autoComplete="off"
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label for="password" className="sr-only">
+                                Password
+                                </Label>
+                                <Input
+                                    id="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    type="password"
+                                    autoComplete="off"
+                                />
+                            </FormGroup>
+                            <Button size="lg" color="primary" block>Login</Button>
+                        </Form>
+                        
+                        <div className="text-center mt-3">
+                            <Link to="/forgot">Forgot Password</Link>
+                        </div>
+
+                        <div className="text-center text-muted mt-3">
+                            Don't have an account? <Link to="/register">Register</Link> now.
                         </div>
                     </div>
                 </div>
